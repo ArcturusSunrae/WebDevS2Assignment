@@ -1,0 +1,291 @@
+/* table{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+} */
+
+body{
+    height: 2000px;
+    background-color: #b3d2e7b7;
+}
+.sec-one-info-left{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+    background-color: aliceblue;
+}
+.info-table{
+    height: 500px;
+
+}
+.time-info, .ticket-info {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 600px;
+    font-family: Arial, sans-serif;
+    border: 1px solid #ccc;
+    margin: 20px;
+    padding: 20px;
+  }
+  
+  .time-info th, .time-info td, .ticket-info th, .ticket-info td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+  }
+  
+  .time-info th, .ticket-info th {
+    height: 42px;
+    background-color: #f2f2f2;
+  }
+  
+  .time-info tr:nth-child(even), .ticket-info tr:nth-child() {
+    background-color: #f2f2f2;
+  }
+  
+  .time-info td:hover {
+
+    background-color: #e0e0e0;
+    .highlight-peak{
+        color: #ff0000;
+    }
+  }
+  
+.col-time{
+    display: flex;
+    flex-direction: column;
+}
+
+.date-picker, .time-picker{
+  background-color: rgb(86, 91, 96);
+}
+
+.nav{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+    background-color: aliceblue;
+    width: 100%;
+    height: 7%
+}
+
+.back{
+  background-color: transparent;
+  border: transparent;
+
+}
+  
+  .ticket-info tr:hover {
+    background-color: #b0b0b0;
+    .highlight-peak{
+        color: #ff0000;
+    }
+  }
+
+
+  
+
+  .summary-separation{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0 0 10px 0;
+  }
+
+  .first-half{
+    display: flex;
+    flex-direction: row;
+  }
+  .date-picker {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    width: 25%;
+  }
+  
+  .date-picker label {
+    display: block;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #080808;
+    font-size: 24px;
+    font-weight: bold;
+    text-align: left;
+
+  }
+  
+  .date-control {
+    width: 70%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    outline: none;
+    font-size: 14px;
+    color: #090909;
+    text-align: left;
+  }
+
+
+/*time picker style*/
+
+  
+  .time-picker {
+    background-color: #ffffff;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    text-align: left;
+    width: 500px;
+  }
+
+  #timeDropdown option{
+    width: 300px;
+    height: 60px;
+    font-size: 18px;
+  }
+  
+  #timeDropdown {
+    width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    font-size: 14px;
+    color: #333;
+    cursor: pointer;
+  }
+/*radio buttons local/foreigner styling*/
+form {
+    display: inline-block;
+    margin: 20px;
+  }
+  
+  form label {
+    display: block;
+    margin-bottom: 10px;
+  }
+  
+  form input[type="radio"] {
+    margin-right: 5px;
+  }
+  
+  /*ticket count selection style*/
+
+  .second-half{
+    left: 20%;
+    display: flex;
+    ;
+
+  }
+  .second-half h2{
+    text-align: center;
+  }
+ 
+
+  .buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+
+  .ticket-count{
+    display: block;
+  }
+
+  .ticket-type{
+    display: block;
+    width: 300px;
+  }
+  .count-button {
+    width: 42px;
+    height: 42px;
+    border-radius: 50%;
+    padding: 2px;
+    margin: 3%;
+    border: none;
+    background-color: #465e6e;
+    color: white;
+    font-size: 18px;
+    cursor: pointer;
+  }
+
+  .total {
+    font-size: 24px;
+  }
+
+  .result {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-top: 20px;
+    white-space: nowrap;
+  }
+
+/*right side set summary table*/
+
+  
+          .summary-container {
+              position: fixed;
+              top: 15%;
+              right: 0;
+              width: 35%;
+          }
+          .title-boking h1 {
+              text-align: center;
+          }
+  
+          table {
+              border-collapse:separate;
+              width: 100%;
+          }
+  
+          th, td {
+              border: 1px solid black;
+              padding: 8px;
+              text-align: left;
+          }
+  
+          th {
+              background-color: lightgray;
+          }
+
+/*time selection dropdown styling*/
+/* Style the select dropdown */
+#timeDropdown {
+  width: 80%; /* Set the desired width */
+  height: auto;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  appearance: none;
+  -webkit-appearance: none;
+  background-color: white;
+  font-size: 14px;
+  color: #333;
+  cursor: pointer;
+  outline: none;
+}
+
+/* Style the options container */
+#timeDropdown option {
+  padding: 6px;
+}
+
+/* Hide the scrollbar */
+#timeDropdown::-webkit-scrollbar {
+  width: 0;
+  background-color: transparent;
+}
+
+/* Style the selected options */
+#timeDropdown option:checked {
+  background-color: #f0f0f0;
+  font-weight: bold;
+}

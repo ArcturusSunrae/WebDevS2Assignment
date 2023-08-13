@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./css/home.css">
+    <title>Confirmation Page</title>
+
+</head>
+<body>
+    <style>
+        body {
+            background-color: #8aa2b5;
+        }
+    </style>
+    <table>
+        <tr>
+            <th colspan="4">Booking Details</th>
+        </tr>
+
+        <tr>
+            <th colspan="2">Name: </th>
+            <td colspan="2" class="fullName"></td>
+        </tr>
+        <tr>
+            <th colspan="4">Date</th>
+        </tr>
+        <tr>
+            <td colspan="4" class="selectedDate"></td>
+        </tr>
+        <tr>
+            <th colspan="2">Time</th>
+            <th colspan="2">Duration</th>
+        </tr>
+        <tr>
+        <td colspan="2" class="selectedTimes"></td>
+            <td colspan="2" class="selectedTimesCount">1 hour</td>
+        </tr>
+        <tr>
+            <th colspan="2">Email: </th>
+            <td colspan="2" class="email"></td>
+        </tr>
+
+        <tr>
+            <th colspan="2">Phone: </th>
+            <td colspan="2" class="phone"></td>
+        </tr>
+
+        <tr>
+            <th colspan="2">Gender:</th>
+            <td class="gender"></td>
+        </tr>
+
+        <tr>
+            <th colspan="4"></th>
+        </tr>
+
+        <tr>
+            <th colspan="2">Ticket Type</th>
+            <th>Amount</th>
+            <th>Price</th>
+        </tr>
+        <tr  class="localAdult" data-type="localAdult">
+            <th rowspan="6">Selected Tickets</th>
+            <td>Local Adult</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="localChild" data-type="localChild">
+            <td>Local Child</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="localInfant" data-type="localInfant">
+            <td>Local Infant</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="foreignAdult" data-type="foreignAdult">
+            <td>Foreign Adult</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="foreignChild" data-type="foreignChild">
+            <td>Foreign Child</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="foreignInfant" data-type="foreignInfant">
+            <td>Foreign Infant</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr>
+            <th colspan="4">Total</th>
+        </tr>
+        <tr>
+            <td colspan="4" class="total-price-cell">0</td>
+        </tr>
+    </table>
+
+
+
+<script>
+
+const selectedDate = document.querySelector('.selectedDate');
+    const selectedTimes = document.querySelector('.selectedTimes');
+    const selectedTimesCount = document.querySelector('.selectedTimesCount');
+     const countCells = document.querySelectorAll('.count-cell');
+     const priceCells = document.querySelectorAll('.price-cell');
+    const totalPriceCell = document.querySelector('.total-price-cell');
+    const localAdult = document.querySelector('.localAdult .count-cell');
+    const localChild = document.querySelector('.localChild .count-cell');
+    const localInfant = document.querySelector('.localInfant .count-cell');
+    const foreignAdult = document.querySelector('.foreignAdult .count-cell');
+    const foreignChild = document.querySelector('.foreignChild .count-cell');
+    const foreignInfant = document.querySelector('.foreignInfant .count-cell');
+    const localAdultPrice = document.querySelector('.localAdult .price-cell');
+    const localChildPrice = document.querySelector('.localChild .price-cell');
+    const localInfantPrice = document.querySelector('.localInfant .price-cell');
+    const foreignAdultPrice = document.querySelector('.foreignAdult .price-cell');
+    const foreignChildPrice = document.querySelector('.foreignChild .price-cell');
+    const foreignInfantPrice = document.querySelector('.foreignInfant .price-cell');
+
+/* 
+    const booking = JSON.parse(localStorage.getItem('booking'));
+    const { date, times, localAdultCount, localChildCount, localInfantCount, foreignAdultCount, foreignChildCount, foreignInfantCount } = booking;
+
+    selectedDate.textContent = date;
+    selectedTimes.textContent = times;
+    selectedTimesCount.textContent = times.length + ' hour(s)';
+    countCells[0].textContent = localAdultCount;
+    countCells[1].textContent = localChildCount;
+    countCells[2].textContent = localInfantCount;
+    countCells[3].textContent = foreignAdultCount;
+    countCells[4].textContent = foreignChildCount;
+    countCells[5].textContent = foreignInfantCount;
+
+    const localAdultPrice = 1000;
+    const localChildPrice = 500;
+    const localInfantPrice = 0;
+    const foreignAdultPrice = 2000;
+    const foreignChildPrice = 1000;
+    const foreignInfantPrice = 0;
+
+    priceCells[0].textContent = localAdultCount * localAdultPrice;
+
+    priceCells[0].textContent = localAdultCount * localAdultPrice;
+    priceCells[1].textContent = localChildCount * localChildPrice;
+    priceCells[2].textContent = localInfantCount * localInfantPrice;
+    priceCells[3].textContent = foreignAdultCount * foreignAdultPrice;
+    priceCells[4].textContent = foreignChildCount * foreignChildPrice;
+    priceCells[5].textContent = foreignInfantCount * foreignInfantPrice;
+
+    const totalPrice = localAdultCount * localAdultPrice + localChildCount * localChildPrice + localInfantCount * localInfantPrice + foreignAdultCount * foreignAdultPrice + foreignChildCount * foreignChildPrice + foreignInfantCount * foreignInf
+ */
+    const storedDate = localStorage.getItem('selectedDate');
+    selectedDate.textContent = storedDate;
+
+    const storedTimes = localStorage.getItem('selectedTimes');
+    selectedTimes.textContent = storedTimes;
+
+
+    const storedTimesCount = localStorage.getItem('selectedTimesCountAdd');
+    selectedTimesCount.textContent = storedTimesCount + ' hour(s)';
+
+    const storedLocalAdultCount = localStorage.getItem('localAdultCount');
+    countCells[0].textContent = storedLocalAdultCount;
+
+    const storedLocalChildCount = localStorage.getItem('localChildCount');
+    countCells[1].textContent = storedLocalChildCount;
+
+    const storedLocalInfantCount = localStorage.getItem('localInfantCount');
+    countCells[2].textContent = storedLocalInfantCount;
+
+    const storedForeignAdultCount = localStorage.getItem('foreignAdultCount');
+    countCells[3].textContent = storedForeignAdultCount;
+
+    const storedForeignChildCount = localStorage.getItem('foreignChildCount');
+    countCells[4].textContent = storedForeignChildCount;
+
+    const storedForeignInfantCount = localStorage.getItem('foreignInfantCount');
+    countCells[5].textContent = storedForeignInfantCount;
+
+    const storedLocalAdultPrice = localStorage.getItem('localAdultPrice');
+    priceCells[0].textContent = storedLocalAdultPrice;
+
+    const storedLocalChildPrice = localStorage.getItem('localChildPrice');
+    priceCells[1].textContent = storedLocalChildPrice;
+
+    const storedLocalInfantPrice = localStorage.getItem('localInfantPrice');
+    priceCells[2].textContent = storedLocalInfantPrice;
+
+    const storedForeignAdultPrice = localStorage.getItem('foreignAdultPrice');
+    priceCells[3].textContent = storedForeignAdultPrice;
+
+    const storedForeignChildPrice = localStorage.getItem('foreignChildPrice');
+    priceCells[4].textContent = storedForeignChildPrice;
+
+    const storedForeignInfantPrice = localStorage.getItem('foreignInfantPrice');
+    priceCells[5].textContent = storedForeignInfantPrice;
+
+    const storedTotalPrice = localStorage.getItem('totalPrice');
+    totalPriceCell.textContent = storedTotalPrice;
+
+
+         // Retrieve and populate values from local storage
+         const storedFullName = localStorage.getItem('fullName');
+        const storedMobile = localStorage.getItem('mobile');
+        const storedEmail = localStorage.getItem('email');
+        const storedGender = localStorage.getItem('gender');
+
+        document.querySelector('.fullName').textContent = storedFullName;
+        document.querySelector('.phone').textContent = storedMobile;
+        document.querySelector('.email').textContent = storedEmail;
+        document.querySelector('.gender').textContent = storedGender;
+</script>
+
+</body>
+</html>

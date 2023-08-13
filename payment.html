@@ -1,0 +1,395 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Payment</title>
+    <link rel="stylesheet" href="./css/home.css">
+
+    <style>
+
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  background-color: #424c66;
+  height: 100vh;
+  background: url(/videos/turtle.mp4);
+}
+
+.payment-container {
+  background-color: #7b8399;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  width: 100%;
+  height: 100vh;
+  border-radius: 8px;
+}
+
+.payment-header {
+  text-align: center;
+  margin-bottom: 30px;
+}
+
+.input-row {
+  display: flex;
+  justify-content: space-around;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 15px;
+}
+
+.input-group {
+  width: 100%;
+  display: grid;
+  justify-content: space-around;
+  align-items: left;
+}
+
+label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 5px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-size: 18px;
+  margin: 5%;
+}
+
+input {
+  width: 150%;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  transition: border-color 0.3s;
+  margin: 10%;
+}
+
+input:focus {
+  outline: none;
+  border:3px solid #3498db;
+}
+
+.error {
+  color: red;
+  font-size: 12px;
+  margin-top: 5px;
+}
+
+/* button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 4px;
+  cursor: pointer;
+  width: 60%;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+button:hover {
+  background-color: #297db3;
+} */
+
+button {
+  background-color: #3498db;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 7px;
+  cursor: pointer;
+  width: 60%; 
+  height: 8%;
+  margin: 0 auto; 
+  display: block; 
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #297db3;
+  transform: scaleX(1);
+  transition: all 8.3s ease-in-out;
+}
+
+table{
+  height: 100vh;
+}
+
+.payment-header h2{
+  color: black;
+  margin-top: 20%;
+}
+          </style> 
+</head>
+<body>
+
+      
+    <div class="payment-container">
+        <div class="payment-header">
+          <h2>Payment</h2>
+        </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="cardNumber">Card Number</label>
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+            <div class="error" id="cardNumberError"></div>
+          </div>
+          <div class="input-group">
+            <label for="expireDate">Expire Date</label>
+            <input type="text" id="expireDate" placeholder="MM/YY">
+            <div class="error" id="expireDateError"></div>
+          </div>
+        </div>
+        <div class="input-row">
+          <div class="input-group">
+            <label for="cvcNumber">CVC Number</label>
+            <input type="text" id="cvcNumber" placeholder="123">
+            <div class="error" id="cvcNumberError"></div>
+          </div>
+          <div class="input-group">
+            <label for="nameOnCard">Name on Card</label>
+            <input type="text" id="nameOnCard" placeholder="Name">
+            <div class="error" id="nameOnCardError"></div>
+          </div>
+        </div>
+        <button id="submitPayment"> Pay <a href="confirmation.html"  class="total-display-price"></a></button>
+      </div>
+
+
+      <div class="left">
+
+			  <table> 
+				<tr>
+					<th colspan="4">Date</th>
+				</tr>
+				<tr>
+					<td colspan="4" class="selectedDate"></td>
+				</tr>
+				<tr>
+					<th colspan="2">Time</th>
+					<th colspan="2">Duration</th>
+				</tr>
+				<tr>
+				<td colspan="2" class="selectedTimes"></td>
+					<td colspan="2" class="selectedTimesCount">1 hour</td>
+				</tr>
+				<tr>
+					<th colspan="2">Ticket Type</th>
+					<th>Amount</th>
+					<th>Price</th>
+				</tr>
+				<tr  class="localAdult" data-type="localAdult">
+					<th rowspan="6">Selected Tickets</th>
+					<td>Local Adult</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="localChild" data-type="localChild">
+					<td>Local Child</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="localInfant" data-type="localInfant">
+					<td>Local Infant</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="foreignAdult" data-type="foreignAdult">
+					<td>Foreign Adult</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="foreignChild" data-type="foreignChild">
+					<td>Foreign Child</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="foreignInfant" data-type="foreignInfant">
+					<td>Foreign Infant</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr>
+					<th colspan="4">Total</th>
+				</tr>
+				<tr>
+					<td colspan="4" class="total-price-cell"></td>
+				</tr>
+			</table>
+			</div>
+      
+      <script>
+        const cardNumber = document.getElementById('cardNumber');
+        const expireDate = document.getElementById('expireDate');
+        const cvcNumber = document.getElementById('cvcNumber');
+        const nameOnCard = document.getElementById('nameOnCard');
+        const cardNumberError = document.getElementById('cardNumberError');
+        const expireDateError = document.getElementById('expireDateError');
+        const cvcNumberError = document.getElementById('cvcNumberError');
+        const nameOnCardError = document.getElementById('nameOnCardError');
+        const submitPayment = document.getElementById('submitPayment');
+      
+        submitPayment.addEventListener('click', () => {
+          clearErrors();
+      
+          if (!validateCardNumber(cardNumber.value)) {
+            cardNumberError.textContent = 'Invalid card number';
+          }
+      
+          if (!validateExpireDate(expireDate.value)) {
+            expireDateError.textContent = 'Invalid expire date';
+          }
+      
+          if (!validateCvcNumber(cvcNumber.value)) {
+            cvcNumberError.textContent = 'Invalid CVV number';
+          }
+      
+          if (!validateNameOnCard(nameOnCard.value)) {
+            nameOnCardError.textContent = 'Name is required';
+          }
+        });
+      
+        function clearErrors() {
+          cardNumberError.textContent = '';
+          expireDateError.textContent = '';
+          cvcNumberError.textContent = '';
+          nameOnCardError.textContent = '';
+        }
+      
+        function validateCardNumber(number) {
+          // You can implement card number validation logic here
+          return number.length === 19;
+        }
+      
+        function validateExpireDate(date) {
+          // You can implement expire date validation logic here
+          return /^\d{2}\/\d{2}$/.test(date);
+        }
+      
+        function validateCvcNumber(cvc) {
+          // You can implement CVV validation logic here
+          return /^\d{3}$/.test(cvc);
+        }
+      
+        function validateNameOnCard(name) {
+          // You can implement name validation logic here
+          return name.trim() !== '';
+        }
+
+
+
+        
+
+        const selectedDate = document.querySelector('.selectedDate');
+    const selectedTimes = document.querySelector('.selectedTimes');
+    const selectedTimesCount = document.querySelector('.selectedTimesCount');
+     const countCells = document.querySelectorAll('.count-cell');
+     const priceCells = document.querySelectorAll('.price-cell');
+    const totalPriceCell = document.querySelector('.total-price-cell');
+    const totalDisplayPrice = document.querySelector('.total-display-price');
+    const localAdult = document.querySelector('.localAdult .count-cell');
+    const localChild = document.querySelector('.localChild .count-cell');
+    const localInfant = document.querySelector('.localInfant .count-cell');
+    const foreignAdult = document.querySelector('.foreignAdult .count-cell');
+    const foreignChild = document.querySelector('.foreignChild .count-cell');
+    const foreignInfant = document.querySelector('.foreignInfant .count-cell');
+    const localAdultPrice = document.querySelector('.localAdult .price-cell');
+    const localChildPrice = document.querySelector('.localChild .price-cell');
+    const localInfantPrice = document.querySelector('.localInfant .price-cell');
+    const foreignAdultPrice = document.querySelector('.foreignAdult .price-cell');
+    const foreignChildPrice = document.querySelector('.foreignChild .price-cell');
+    const foreignInfantPrice = document.querySelector('.foreignInfant .price-cell');
+
+/* 
+    const booking = JSON.parse(localStorage.getItem('booking'));
+    const { date, times, localAdultCount, localChildCount, localInfantCount, foreignAdultCount, foreignChildCount, foreignInfantCount } = booking;
+
+    selectedDate.textContent = date;
+    selectedTimes.textContent = times;
+    selectedTimesCount.textContent = times.length + ' hour(s)';
+    countCells[0].textContent = localAdultCount;
+    countCells[1].textContent = localChildCount;
+    countCells[2].textContent = localInfantCount;
+    countCells[3].textContent = foreignAdultCount;
+    countCells[4].textContent = foreignChildCount;
+    countCells[5].textContent = foreignInfantCount;
+
+    const localAdultPrice = 1000;
+    const localChildPrice = 500;
+    const localInfantPrice = 0;
+    const foreignAdultPrice = 2000;
+    const foreignChildPrice = 1000;
+    const foreignInfantPrice = 0;
+
+    priceCells[0].textContent = localAdultCount * localAdultPrice;
+
+    priceCells[0].textContent = localAdultCount * localAdultPrice;
+    priceCells[1].textContent = localChildCount * localChildPrice;
+    priceCells[2].textContent = localInfantCount * localInfantPrice;
+    priceCells[3].textContent = foreignAdultCount * foreignAdultPrice;
+    priceCells[4].textContent = foreignChildCount * foreignChildPrice;
+    priceCells[5].textContent = foreignInfantCount * foreignInfantPrice;
+
+    const totalPrice = localAdultCount * localAdultPrice + localChildCount * localChildPrice + localInfantCount * localInfantPrice + foreignAdultCount * foreignAdultPrice + foreignChildCount * foreignChildPrice + foreignInfantCount * foreignInf
+ */
+    const storedDate = localStorage.getItem('selectedDate');
+    selectedDate.textContent = storedDate;
+
+    const storedTimes = localStorage.getItem('selectedTimes');
+    selectedTimes.textContent = storedTimes;
+
+
+    const storedTimesCount = localStorage.getItem('selectedTimesCountAdd');
+    selectedTimesCount.textContent = storedTimesCount + ' hour(s)';
+
+    const storderDisplayPrice = localStorage.getItem('totalPrice');
+    totalDisplayPrice.textContent = storderDisplayPrice;
+
+    const storedLocalAdultCount = localStorage.getItem('localAdultCount');
+    countCells[0].textContent = storedLocalAdultCount;
+
+    const storedLocalChildCount = localStorage.getItem('localChildCount');
+    countCells[1].textContent = storedLocalChildCount;
+
+    const storedLocalInfantCount = localStorage.getItem('localInfantCount');
+    countCells[2].textContent = storedLocalInfantCount;
+
+    const storedForeignAdultCount = localStorage.getItem('foreignAdultCount');
+    countCells[3].textContent = storedForeignAdultCount;
+
+    const storedForeignChildCount = localStorage.getItem('foreignChildCount');
+    countCells[4].textContent = storedForeignChildCount;
+
+    const storedForeignInfantCount = localStorage.getItem('foreignInfantCount');
+    countCells[5].textContent = storedForeignInfantCount;
+
+    const storedLocalAdultPrice = localStorage.getItem('localAdultPrice');
+    priceCells[0].textContent = storedLocalAdultPrice;
+
+    const storedLocalChildPrice = localStorage.getItem('localChildPrice');
+    priceCells[1].textContent = storedLocalChildPrice;
+
+    const storedLocalInfantPrice = localStorage.getItem('localInfantPrice');
+    priceCells[2].textContent = storedLocalInfantPrice;
+
+    const storedForeignAdultPrice = localStorage.getItem('foreignAdultPrice');
+    priceCells[3].textContent = storedForeignAdultPrice;
+
+    const storedForeignChildPrice = localStorage.getItem('foreignChildPrice');
+    priceCells[4].textContent = storedForeignChildPrice;
+
+    const storedForeignInfantPrice = localStorage.getItem('foreignInfantPrice');
+    priceCells[5].textContent = storedForeignInfantPrice;
+
+    const storedTotalPrice = localStorage.getItem('totalPrice');
+    totalPriceCell.textContent = storedTotalPrice;
+
+
+      </script>
+
+      
+</body>
+</html>

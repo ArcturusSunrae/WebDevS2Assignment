@@ -1,0 +1,396 @@
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+	 <meta charset="UTF-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/logo1.ico">
+	<link rel="stylesheet" href="./css/home.css">
+	<script src="https://unpkg.com/alpinejs" defer></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
+    <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
+	 <title>Details</title>
+ </head>
+ <body>
+    <style>
+        button{
+            background-color: #8aa2b5;
+            border: none;
+            color: white;
+            padding: 15px 32px;
+            text-align: center;
+            font-size: 16px;
+            margin: 4px 2px;
+            cursor: pointer;
+            border-radius: 12px;
+        }
+
+        a{
+            text-decoration: none;
+            color: white;
+        }
+    </style>
+
+	<div class="headCon" >
+        <div class="tranparent-style" >
+            <a class="log" href="home.html">
+              <img  id="img" src="./images/logo.png" alt="">.
+            </a>
+
+         <nav>
+          <a  class="navIcon" href="home.html">HOME </a>
+          <a  class="navIcon" href="about.html">ABOUT</a>
+          <a  class="navIcon" href="sign.html">CONTACT</a>
+          <a  class="navIcon" href="store.html">DONATE & SUPPORT</a>
+	       </nav>   
+         <a class="sign">
+          <button id="sign" class="navIcon" href="sign.html">Sign in/ Login</button>
+         </a>
+        </div>
+	<video autoplay muted loop class="vid">
+		<source src="videos/turtle.mp4" type="video/mp4">
+</video>
+<h1>Sign In / Sign Up </h1>
+
+ <div class="bigCon">
+
+	<div class="container">
+		<div class="main-container">
+			<div class="left">
+
+			  <table> 
+				<tr>
+					<th colspan="4">Date</th>
+				</tr>
+				<tr>
+					<td colspan="4" class="selectedDate"></td>
+				</tr>
+				<tr>
+					<th colspan="2">Time</th>
+					<th colspan="2">Duration</th>
+				</tr>
+				<tr>
+				<td colspan="2" class="selectedTimes"></td>
+					<td colspan="2" class="selectedTimesCount">1 hour</td>
+				</tr>
+				<tr>
+					<th colspan="2">Ticket Type</th>
+					<th>Amount</th>
+					<th>Price</th>
+				</tr>
+				<tr  class="localAdult" data-type="localAdult">
+					<th rowspan="6">Selected Tickets</th>
+					<td>Local Adult</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="localChild" data-type="localChild">
+					<td>Local Child</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="localInfant" data-type="localInfant">
+					<td>Local Infant</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="foreignAdult" data-type="foreignAdult">
+					<td>Foreign Adult</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="foreignChild" data-type="foreignChild">
+					<td>Foreign Child</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr class="foreignInfant" data-type="foreignInfant">
+					<td>Foreign Infant</td>
+					<td class="count-cell">0</td>
+					<td class="price-cell">0</td>
+				</tr>
+				<tr>
+					<th colspan="4">Total</th>
+				</tr>
+				<tr>
+					<td colspan="4" class="total-price-cell">$150.00</td>
+				</tr>
+			</table>
+			</div>
+
+
+			<div x-data="checkout" class="signIn">
+				<h1>Information Form</h1>
+				<p>please fill in the below asked information</p>
+				<form id="myForm" action="get" x-on:submit.prevent="Go To Payment">
+					<div class="inputs">
+						<div>
+							<label for="fullName">Full Name</label>
+							<input type="text" name="fullName" id="fullName" placeholder="fullname*" x-model="guest.fullName" required>
+						</div>
+						<div>
+							<label for="mobile">Mobile</label>
+							<input type="tel" name="mobile" id="mobile" placeholder="mobile*" x-model="guest.mobile">
+						</div>
+						<div>
+							<label for="email">Email</label>
+							<input type="email" name="email" id="email" placeholder="email*" x-model="guest.email">
+						</div>
+						<input type="email" name="conEmail" placeholder="Confirm email*" required/>
+						<br>
+						<select name="gender" id="gen">
+						 <option value="male">male</option>
+						 <option value="female">female</option>
+						</select>
+
+						<button type="submit" class="proceed"> <a href="payment.html">proceed</a></button>
+					</div>
+					<br><br><br>
+
+
+				</form>
+			 </div>
+		  </div>
+		
+
+		</form>
+		 </div>
+		 
+
+	 
+	 </div> 
+ </div>
+ <script>
+
+
+
+//getting hold of inputs and storing them in the local storage
+/* function updateUserInfo(){
+    const fullNameInput = document.getElementById('fullName');
+const fullNameValue = fullNameInput.value;
+localStorage.setItem('fullName', fullNameValue);
+
+const mobileInput = document.getElementById('mobile');
+const mobileValue = mobileInput.value;
+localStorage.setItem('mobile', mobileValue);
+
+const emailInput = document.getElementById('email');
+const emailValue = emailInput.value;
+localStorage.setItem('email', emailValue);
+
+}
+ */
+//    const form = document.getElementById('myForm');
+//         const fullNameInput = document.getElementById('fullName');
+//         const mobileInput = document.getElementById('mobile');
+//         const emailInput = document.getElementById('email');
+//         const genderSelect = document.getElementById('gen');
+
+//         form.addEventListener('submit', function(event) {
+//             event.preventDefault();
+
+//             const fullNameValue = fullNameInput.value;
+//             const mobileValue = mobileInput.value;
+//             const emailValue = emailInput.value;
+//             const genderValue = genderSelect.value;
+
+//             // Store values in local storage
+//             localStorage.setItem('fullName', fullNameValue);
+//             localStorage.setItem('mobile', mobileValue);
+//             localStorage.setItem('email', emailValue);
+//             localStorage.setItem('gender', genderValue);
+
+//             form.submit();
+//         });
+
+
+        const form = document.getElementById('myForm');
+        form.addEventListener('submit', function(event) {
+             event.preventDefault();
+
+    const fullNameInput = document.getElementById('fullName');
+    const mobileInput = document.getElementById('mobile');
+    const emailInput = document.getElementById('email');
+    const genderSelect = document.getElementById('gen');
+
+    const fullNameValue = fullNameInput.value;
+    const mobileValue = mobileInput.value;
+    const emailValue = emailInput.value;
+    const genderValue = genderSelect.value;
+
+    // Store values in local storage
+    localStorage.setItem('fullName', fullNameInput.value);
+    localStorage.setItem('mobile', mobileInput.value);
+    localStorage.setItem('email', emailInput.value);
+    localStorage.setItem('gender', genderSelect.value);
+
+    // Log the values within the same scope
+    console.log('Full Name:', fullNameInput.value);
+    console.log('Mobile:', mobileInput.value);
+    console.log('Email:', emailInput.value);
+    console.log('Gender:', genderSelect.value);
+
+    // Perform other actions or submit the form
+    form.submit();
+});
+
+
+/* const genderSelect = document.getElementById('genderSelect');
+const selectedGender = genderSelect.value;
+localStorage.setItem('gender', selectedGender); */
+//alpine js
+
+document.addEventListener('alpine:init', () => {
+            Alpine.data('checkout', () => ({
+                guest: {
+                    fullName: '',
+                    mobile: '',
+                    email: '',
+                    gender: ''
+                },
+                init() {
+                    const input = document.querySelector("#mobile");
+                    window.intlTelInput(input, {
+                        utilsScript: "https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/utils.js",
+                    });
+                },
+                gotoPayment() {
+                    // set the guest data to local storage
+                    localStorage.setItem('guest', JSON.stringify(this.guest))
+
+                    // redirect to payment page
+                    window.location.href = 'payment.html'
+                }
+            }))
+        })
+
+//validation for the form
+const forms = document.getElementById('myForm');
+    const conEmailInput = document.getElementById('conEmail');
+
+    forms.addEventListener('submit', function (event) {
+        // Prevent the form from submitting
+        event.preventDefault();
+
+        const fullName = form.fullName.value;
+        const mobile = form.mobile.value;
+        const email = form.email.value;
+        const conEmail = conEmailInput.value;
+        const gender = form.gender.value;
+
+ 
+
+        // Validation for Full Name
+        if (fullName.trim() === '') {
+            alert('Full Name is required.');
+            return;
+        }
+
+        // Validation for Mobile Number
+        if (mobile.trim() === '') {
+            alert('Mobile Number is required.');
+            return;
+        }
+
+        // Validation for Email
+        if (email.trim() === '') {
+            alert('Email is required.');
+            return;
+        }
+
+        // Validation for Confirm Email
+        if (conEmail.trim() === '') {
+            alert('Confirm Email is required.');
+            return;
+        }
+        if (email !== conEmail) {
+            alert('Emails do not match.');
+            return;
+        }
+
+        // Validation for Gender (Optional)
+        if (gender === '') {
+            alert('Gender is required.');
+            return;
+        }
+
+        form.submit();
+    });
+
+
+
+
+
+    const selectedDate = document.querySelector('.selectedDate');
+    const selectedTimes = document.querySelector('.selectedTimes');
+    const selectedTimesCount = document.querySelector('.selectedTimesCount');
+     const countCells = document.querySelectorAll('.count-cell');
+     const priceCells = document.querySelectorAll('.price-cell');
+    const totalPriceCell = document.querySelector('.total-price-cell');
+    const localAdult = document.querySelector('.localAdult .count-cell');
+    const localChild = document.querySelector('.localChild .count-cell');
+    const localInfant = document.querySelector('.localInfant .count-cell');
+    const foreignAdult = document.querySelector('.foreignAdult .count-cell');
+    const foreignChild = document.querySelector('.foreignChild .count-cell');
+    const foreignInfant = document.querySelector('.foreignInfant .count-cell');
+    const localAdultPrice = document.querySelector('.localAdult .price-cell');
+    const localChildPrice = document.querySelector('.localChild .price-cell');
+    const localInfantPrice = document.querySelector('.localInfant .price-cell');
+    const foreignAdultPrice = document.querySelector('.foreignAdult .price-cell');
+    const foreignChildPrice = document.querySelector('.foreignChild .price-cell');
+    const foreignInfantPrice = document.querySelector('.foreignInfant .price-cell');
+
+    const storedDate = localStorage.getItem('selectedDate');
+    selectedDate.textContent = storedDate;
+
+    const storedTimes = localStorage.getItem('selectedTimes');
+    selectedTimes.textContent = storedTimes;
+
+    const storedTimesCount = localStorage.getItem('selectedTimesCountAdd');
+    selectedTimesCount.textContent = storedTimesCount + ' hour(s)';
+
+    const storedLocalAdultCount = localStorage.getItem('localAdultCount');
+    countCells[0].textContent = storedLocalAdultCount;
+
+    const storedLocalChildCount = localStorage.getItem('localChildCount');
+    countCells[1].textContent = storedLocalChildCount;
+
+    const storedLocalInfantCount = localStorage.getItem('localInfantCount');
+    countCells[2].textContent = storedLocalInfantCount;
+
+    const storedForeignAdultCount = localStorage.getItem('foreignAdultCount');
+    countCells[3].textContent = storedForeignAdultCount;
+
+    const storedForeignChildCount = localStorage.getItem('foreignChildCount');
+    countCells[4].textContent = storedForeignChildCount;
+
+    const storedForeignInfantCount = localStorage.getItem('foreignInfantCount');
+    countCells[5].textContent = storedForeignInfantCount;
+
+    const storedLocalAdultPrice = localStorage.getItem('localAdultPrice');
+    priceCells[0].textContent = storedLocalAdultPrice;
+
+    const storedLocalChildPrice = localStorage.getItem('localChildPrice');
+    priceCells[1].textContent = storedLocalChildPrice;
+
+    const storedLocalInfantPrice = localStorage.getItem('localInfantPrice');
+    priceCells[2].textContent = storedLocalInfantPrice;
+
+    const storedForeignAdultPrice = localStorage.getItem('foreignAdultPrice');
+    priceCells[3].textContent = storedForeignAdultPrice;
+
+    const storedForeignChildPrice = localStorage.getItem('foreignChildPrice');
+    priceCells[4].textContent = storedForeignChildPrice;
+
+    const storedForeignInfantPrice = localStorage.getItem('foreignInfantPrice');
+    priceCells[5].textContent = storedForeignInfantPrice;
+
+    const storedTotalPrice = localStorage.getItem('totalPrice');
+    totalPriceCell.textContent = storedTotalPrice;
+
+
+</script>
+ </body>
+ </html>
+ 

@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Booking page </title>
+    <link rel="stylesheet" href="./css/booking.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="icon" type="image/x-icon" href="./images/logo1.ico">
+  
+  <!-- Link to Flatpickr CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
+  <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
+</head>
+<body>
+    <style>
+        button{
+            width: 7%;
+            height: 4%;
+            background: #48525b;
+            margin: 5%;
+            border-radius: 5px;
+            position: relative;
+            font-size: 20px;
+
+        }
+        a{
+            text-decoration: none;
+            color: rgb(9, 0, 40);
+        }
+            
+        
+    </style>
+    <nav class="nav">
+        <button class="back"> <a href="hikka.html">back </a></button>
+        <div class="title-boking">
+            <h1>Book Your</h1>
+            <h1>Ticket</h1>
+        </div>
+        <img  id="img" src="./images/logo.png" alt="">.
+
+    </nav>
+
+    <div class="summary-separation">
+
+    <!-- left section (booking information section) -->
+        <div class="sec-one-info-left">
+
+     <!-- visiting time information table -->
+            <table class="time-info info-table">
+                <tbody>
+                <tr>
+                    <th>Time</th>
+                </tr>
+                <tr class="col-time">
+                    <td>07:00am - 08:00am</td>  
+                    <td>08:00am - 09:00am</td>
+                    <td>09:00am - 10:00am</td>
+                    <td>10:00am - 11:00am     <span class="highlight-peak">-   PEAK HOUR-</span>   </td>
+                    <td>11:00am - 12:00pm     <span class="highlight-peak">-   PEAK HOUR-</span>    </td>
+                    <td>12:00pm - 01:00pm     <span class="highlight-peak">-   PEAK HOUR-</span>    </td>
+                    <td>01:00pm - 02:00pm</td>
+                    <td>02:00pm - 03:00pm</td>
+                    <td>03:00pm - 04:00pm     <span class="highlight-peak">-   PEAK HOUR-</span>    </td>
+                    <td>04:00pm - 05:00pm     <span class="highlight-peak">-   PEAK HOUR-</span>    </td>
+                    <td>05:00pm - 06:00pm     <span class="highlight-peak">-   PEAK HOUR-</span>    </td>
+                </tr>
+                </tbody>
+            </table>
+    <!-- ticket information table -->
+            <table class="ticket-info info-table">
+                <tr>
+                    <th>Ticket type</th>
+                    <th>Price</th>
+                </tr>
+    
+                <tr>
+                    <td>Foreigner Adult </td>
+                    <td>10 USD</td>
+                </tr>
+    
+                <tr>
+                    <td>Foreigner Adult <span class="highlight-peak">(peak time)</span></td>
+                    <td>13 USD</td>
+                </tr>
+    
+                <tr>
+                    <td>Foreigner Child </td>
+                    <td>5 USD</td>
+                </tr>
+    
+                <tr>
+                    <td>Foreigner Child<span class="highlight-peak">(peak time)</span></td>
+                    <td>8 USD</td>
+                </tr>
+    
+                <tr>
+                    <td>Local Adult </td>
+                    <td>4 USD</td>
+                </tr>
+    
+                <tr>
+                    <td>Local Adult<span class="highlight-peak">(peak time)</span></td>
+                    <td>6 USD</td>
+                </tr>
+    
+                <tr>
+                    <td>Local Child </td>
+                    <td>2 USD</td>
+                </tr>
+    
+                <tr>
+                    <td>Local Child<span class="highlight-peak">(peak time)</span></td>
+                    <td>3  USD</td> 
+                </tr>
+                <tr>
+                    <td colspan="2"> **ALL INFANTS BELOW THE AGE OF <span class="highlight-peak">4 (FOUR)</span> ARE ALLOWED FREE ENTRANCE</td>
+                </tr>
+            </table>
+    </div>
+
+    <div class="sec-one-info-right">
+
+
+<div class="summary-container">
+    <table>
+ 
+        <tr>
+            <th colspan="4">Date</th>
+        </tr>
+        <tr>
+            <td colspan="4" class="selectedDate"></td>
+        </tr>
+        <tr>
+            <th colspan="2">Time</th>
+            <th colspan="2">Duration</th>
+        </tr>
+        <tr>
+        <td colspan="2" class="selectedTimes"></td>
+            <td colspan="2" class="selectedTimesCount">1 hour</td>
+        </tr>
+        <tr>
+            <th colspan="2">Ticket Type</th>
+            <th>Amount</th>
+            <th>Price</th>
+        </tr>
+        <tr  class="localAdult" data-type="localAdult">
+            <th rowspan="6">Selected Tickets</th>
+            <td>Local Adult</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="localChild" data-type="localChild">
+            <td>Local Child</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="localInfant" data-type="localInfant">
+            <td>Local Infant</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="foreignAdult" data-type="foreignAdult">
+            <td>Foreign Adult</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="foreignChild" data-type="foreignChild">
+            <td>Foreign Child</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr class="foreignInfant" data-type="foreignInfant">
+            <td>Foreign Infant</td>
+            <td class="count-cell">0</td>
+            <td class="price-cell">0</td>
+        </tr>
+        <tr>
+            <th colspan="4">Total</th>
+        </tr>
+        <tr>
+            <td colspan="4" class="total-price-cell">$150.00</td>
+        </tr>
+    </table>
+</div>
+
+</body>
+</html>
+
+    </div>
+
+
+
+</div>
+<br><br><br><br><br><br>
+         <div class="choosing-ticket">
+            
+
+
+            <div class="first-half">
+
+                <div class="date-picker">
+                    <label for="date-picker">Choose a date</label>
+                    <input class="date-control" type="date-pick" placeholder="Select a date" >
+                </div>
+
+
+                <div class="time-picker">
+                    <h2>Choose a Time Slot</h2>
+    
+                      <select id="timeDropdown" aria-multiselectable="true" multiple> 
+                        <option onclick="updateSelectedTimes" value="07:00am - 08:00am">07:00am - 08:00am</option>
+                        <option onclick="updateSelectedTimes" value="08:00am - 09:00am">08:00am - 09:00am</option>
+                        <option onclick="updateSelectedTimes" value="09:00am - 10:00am">09:00am - 10:00am </option>
+                        <option onclick="updateSelectedTimes" value="10:00am - 11:00am">10:00am - 11:00am (peak)</option>
+                        <option onclick="updateSelectedTimes" value="11:00am - 12:00pm">11:00am - 12:00pm (peak)</option>
+                        <option onclick="updateSelectedTimes" value="12:00pm - 01:00pm">12:00pm - 01:00pm (peak)</option>
+                        <option onclick="updateSelectedTimes" value="01:00pm - 02:00pm">01:00pm - 02:00pm</option>
+                        <option onclick="updateSelectedTimes" value="02:00pm - 03:00pm">02:00pm - 03:00pm</option>
+                        <option onclick="updateSelectedTimes" value="03:00pm - 04:00pm">03:00pm - 04:00pm (peak)</option>
+                        <option onclick="updateSelectedTimes" value="04:00pm - 05:00pm">04:00pm - 05:00pm (peak)</option>
+                        <option onclick="updateSelectedTimes" value="05:00pm - 06:00pm">05:00pm - 06:00pm (peak)</option>
+                      </select>
+
+
+                </div>
+
+                <div>
+                    <div class="peakTime"></div>
+                    <div class="nonPeakTime"></div>
+                </div>
+            </div>
+            <h2>Choose Tickets</h2>
+            <div class="second-half">
+
+                <div>
+                    <div class="ticket-type">
+                        <div class="ticket-count">
+                            <button class="count-button subtract-button">-</button>
+                            <label for="type1">Local Adult</label>
+                            <button class="count-button add-button">+</button>
+                            <label class="count-label">0</label>
+                        </div>
+                    </div>
+                  
+                    <div class="ticket-type">
+                        <div class="ticket-count">
+                            <button class="count-button subtract-button">-</button>
+                             <label for="type1">Local Child</label>
+                            <button class="count-button add-button">+</button>
+                            <label class="count-label">0</label>
+                        </div>
+                    </div> 
+                    
+                    <div class="ticket-type">
+                        <div class="ticket-count">
+                            <button class="count-button subtract-button">-</button>
+                            <label for="type1">Local Infant</label>
+                            <button class="count-button add-button">+</button>
+                            <label class="count-label">0</label>
+                        </div>
+                    </div> 
+                
+
+                
+                    <div class="ticket-type">
+                        <div class="ticket-count">
+                            <button class="count-button subtract-button">-</button>
+                            <label for="type1">Foreign Adult</label>
+                            <button class="count-button add-button">+</button>
+                            <label class="count-label">0</label>
+                        </div>
+                    </div> 
+    
+                    <div class="ticket-type">
+                        <div class="ticket-count">
+                            <button class="count-button subtract-button">-</button>
+                            <label for="type1">Foreign Child</label>
+                            <button class="count-button add-button">+</button>
+                            <label class="count-label">0</label>
+                        </div>
+                    </div> 
+    
+                    <div class="ticket-type">
+                        <div class="ticket-count">
+                            <button class="count-button subtract-button">-</button>
+                            <label for="type1">Foreign Infant</label>
+                            <button class="count-button add-button">+</button>
+                            <label class="count-label">0</label>
+                        </div>
+                    </div> 
+                </div>
+
+
+
+
+
+
+            </div>  
+         </div>
+
+<button><a href="details.html">next Page</a></button>
+
+
+<script>
+    const hidePeak = document.querySelector('.peakTime');
+    hidePeak.style.display = 'none';
+
+    const hideNonPeak = document.querySelector('.nonPeakTime');
+    hideNonPeak.style.display = 'none';
+
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
+<script src="./js/bookingggg.js"></script>
+</body>
+</html>
