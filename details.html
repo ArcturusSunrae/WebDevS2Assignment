@@ -38,11 +38,20 @@
 
         .vid{
             position:absolute;
-        z-index: -1;        }
+        z-index: -1;       
+     }
+
+     #head {
+    height: 10.075566750629722vh;
+    display: flex;
+    text-align: center;
+    vertical-align: middle;
+    background-color: transparent;
+}
     </style>
 
 <div class="headCon">
-    <div id="head">
+    <div class="transparent-style">
         <a class="log" href="home.html">
           <img  id="img" src="./images/logo.png" alt="">.
         </a>
@@ -151,7 +160,7 @@
 			<div x-data="checkout" class="signIn">
 				<h1>Information Form</h1>
 				<p>please fill in the below asked information</p>
-				<form id="myForm" action="get" x-on:submit.prevent="Go To Payment">
+				<form id="myForm" x-on:submit.prevent="Go To Payment">
 					<div class="inputs">
 						<div>
 							<label for="fullName">Full Name</label>
@@ -172,7 +181,7 @@
 						 <option value="female">female</option>
 						</select>
 
-						<a href="payment.html"><button type="submit" class="proceed"> proceed</button></a>
+                        <button type="submit" class="proceed"> <a href="payment.html">proceed </a></button> 
 					</div>
 					<br><br><br>
 
@@ -192,45 +201,6 @@
  <script>
 
 
-
-//getting hold of inputs and storing them in the local storage
-/* function updateUserInfo(){
-    const fullNameInput = document.getElementById('fullName');
-const fullNameValue = fullNameInput.value;
-localStorage.setItem('fullName', fullNameValue);
-
-const mobileInput = document.getElementById('mobile');
-const mobileValue = mobileInput.value;
-localStorage.setItem('mobile', mobileValue);
-
-const emailInput = document.getElementById('email');
-const emailValue = emailInput.value;
-localStorage.setItem('email', emailValue);
-
-}
- */
-//    const form = document.getElementById('myForm');
-//         const fullNameInput = document.getElementById('fullName');
-//         const mobileInput = document.getElementById('mobile');
-//         const emailInput = document.getElementById('email');
-//         const genderSelect = document.getElementById('gen');
-
-//         form.addEventListener('submit', function(event) {
-//             event.preventDefault();
-
-//             const fullNameValue = fullNameInput.value;
-//             const mobileValue = mobileInput.value;
-//             const emailValue = emailInput.value;
-//             const genderValue = genderSelect.value;
-
-//             // Store values in local storage
-//             localStorage.setItem('fullName', fullNameValue);
-//             localStorage.setItem('mobile', mobileValue);
-//             localStorage.setItem('email', emailValue);
-//             localStorage.setItem('gender', genderValue);
-
-//             form.submit();
-//         });
 
 
         const form = document.getElementById('myForm');
@@ -264,10 +234,7 @@ localStorage.setItem('email', emailValue);
 });
 
 
-/* const genderSelect = document.getElementById('genderSelect');
-const selectedGender = genderSelect.value;
-localStorage.setItem('gender', selectedGender); */
-//alpine js
+
 
 document.addEventListener('alpine:init', () => {
             Alpine.data('checkout', () => ({
@@ -291,7 +258,7 @@ document.addEventListener('alpine:init', () => {
                     window.location.href = 'payment.html'
                 }
             }))
-        })
+        }) 
 
 //validation for the form
 const forms = document.getElementById('myForm');

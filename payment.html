@@ -2,10 +2,9 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./images/logo1.ico">
-    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Bodoni+Moda:ital,wght@0,400;1,400;1,500&family=Great+Vibes&family=Staatliches&display=swap" rel="stylesheet">
+
     <title>Payment</title>
      <link rel="stylesheet" href="./css/home.css"> 
 
@@ -56,6 +55,7 @@ label {
   font-weight: bold;
   display: block;
   margin-bottom: 5px;
+  font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-size: 18px;
   margin: 5%;
 }
@@ -124,45 +124,16 @@ table{
   color: black;
   margin-top: 20%;
 }
+
+.width-fix{
+  height: 100%;
+
+}
           </style> 
 </head>
 <body>
 
       
-    <div class="headCon">
-      <div id="head">
-          <a class="log" href="home.html">
-            <img  id="img" src="./images/logo.png" alt="">.
-          </a>
-  
-       <nav>
-        <a  class="navIcon" href="home.html">HOME </a>
-        <div class="dropdown">
-          <button class="dropbtn">ABOUT
-            <i></i>
-          </button>
-          <div class="dropCont">
-            <div class="innerContOne">
-              <a href="about.html">What Hatcheries Do</a>
-              <a href="threats.html">Threats To Turtles</a>
-              <a href="categories.html">Turtle Species in Sri Lanka</a>
-            </div>
-            <div class="innerContTwo">
-              <a href="hikka.html">Hikkaduwa Turtle Hatchery</a>
-               <a href="benthota.html">Benthota Turtle Hatchery</a>
-              <a href="kosgoda.html">Kosgoda Turtle Hatchery</a> 
-            </div>
-  
-          </div>
-        </div> 
-        <a  class="navIcon" href="sign.html">CONTACT</a>
-        <a  class="navIcon" href="store.html">DONATE & SUPPORT</a>
-       </nav>   
-
-       <a class="sign" href="sign.html">
-        <button class="signn" class="navIcon" href="sign.html">Sign in/ Login</button>
-       </a>
-      </div>
     <div class="payment-container">
         <div class="payment-header">
           <h2>Payment</h2>
@@ -170,7 +141,7 @@ table{
         <div class="input-row">
           <div class="input-group">
             <label for="cardNumber">Card Number</label>
-            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456">
+            <input type="text" id="cardNumber" placeholder="1234 5678 9012 3456" maxlength="19">
             <div class="error" id="cardNumberError"></div>
           </div>
           <div class="input-group">
@@ -182,7 +153,7 @@ table{
         <div class="input-row">
           <div class="input-group">
             <label for="cvcNumber">CVC Number</label>
-            <input type="text" id="cvcNumber" placeholder="123">
+            <input type="text" id="cvcNumber" placeholder="123" maxlength="3">
             <div class="error" id="cvcNumberError"></div>
           </div>
           <div class="input-group">
@@ -195,7 +166,7 @@ table{
       </div>
 
 
-      <div class="left">
+      <div class="left width-fix">
 
 			  <table> 
 				<tr>
@@ -295,15 +266,44 @@ table{
           nameOnCardError.textContent = '';
         }
       
-        function validateCardNumber(number) {
+     /*     function validateCardNumber(number) {
           // You can implement card number validation logic here
           return number.length === 19;
-        }
+        }  */
+
+        const cardNumberInput = document.getElementById("cardNumber");
+
+cardNumberInput.addEventListener("input", (event) => {
+    const input = event.target;
+    const value = input.value.replace(/\D/g, ""); // Remove non-numeric characters
+    const formattedValue = formatCardNumber(value); // Implement this function to format the card number
+    input.value = formattedValue;
+});
+
+function formatCardNumber(value) {
+  const chunkedValue = value.replace(/\s/g, "").match(/.{1,4}/g);
+  return chunkedValue ? chunkedValue.join(" ") : value;
+}
+
+const expiryDateInput = document.getElementById("expireDate");
+
+expiryDateInput.addEventListener("input", (event) => {
+    const input = event.target;
+    const value = input.value.replace(/\D/g, ""); // Remove non-numeric characters
+    const formattedValue = formatExpiryDate(value); // Implement this function to format the expiry date
+    input.value = formattedValue;
+});
+
+function formatExpiryDate(value) {
+  const month = value.slice(0, 2);
+  const year = value.slice(2, 4);
+  return `${month}/${year}`;
+}
       
-        function validateExpireDate(date) {
+     /*    function validateExpireDate(date) {
           // You can implement expire date validation logic here
           return /^\d{2}\/\d{2}$/.test(date);
-        }
+        } */
       
         function validateCvcNumber(cvc) {
           // You can implement CVV validation logic here
