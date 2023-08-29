@@ -21,6 +21,69 @@
     <link href="https://fonts.googleapis.com/css2?family=Alata&family=Bodoni+Moda:ital,wght@0,400;1,400;1,500&family=Great+Vibes&family=Staatliches&display=swap" rel="stylesheet">
     <link rel="icon" type="image/x-icon" href="./images/logo1.ico">
     <link rel="stylesheet" href="./css/home.css"> 
+    <style>
+      .donate-container {
+  background-color: #f2f2f2;
+  padding: 20px;
+  border-radius: 8px;
+  width: 90%;
+  margin: 50px auto;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.donate-container h2 {
+  color: #333;
+}
+
+.donate-container p {
+  color: #777;
+  margin-bottom: 20px;
+}
+
+.donate-container form label {
+  display: block;
+  margin-bottom: 5px;
+  color: #555;
+}
+
+.donate-container form input {
+  width: 40%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+}
+
+.donate-container form button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.donate-container form button:hover {
+  background-color: #0056b3;
+}
+
+.donate-container form input[type="number"] {
+  width: 50%;
+}
+
+.donate-container form input:focus {
+  outline: none;
+  border-color: #007bff;
+  box-shadow: 0px 0px 4px rgba(0, 123, 255, 0.3);
+}
+
+.pro-container h2{
+  font-size: 26px;
+  font-family: 'Raleway', 'sans-serif';
+  text-align: center;
+  color: #fffdfd;
+}
+    </style>
     <title>Donate & Purchase</title>
 </head>
 <body>
@@ -52,17 +115,54 @@
           </div> 
           <a  class="navIcon" href="sign.html">CONTACT</a>
           <a  class="navIcon" href="store.html">DONATE & SUPPORT</a>
-	       </nav>   
+	       </nav> 
+         <a class="sign" href="booking.html">
+          <button class="signn" class="navIcon" href="booking.html">Book Now</button>
+         </a>  
          <a class="sign" href="sign.html">
-          <button id="sign" class="navIcon" href="sign.html">Sign in/ Login</button>
+          <button class="signn" class="navIcon" href="sign.html">Sign in/ Login</button>
          </a>
         </div>
 
     </div>
 
     <h1 class="middle">TURTLE MERCHLAND</h1>
-      
+
+    <div class="donate-container">
+      <h2>DONATE AND SAVE MARINE LIFE</h2>
+      <p>Your support helps us in our conservation efforts.</p>
+      <form action="process_donation.php" method="POST">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required>
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+        <label for="amount">Amount:</label>
+        <input type="number" id="amount" name="amount" min="1" required>
+        <button type="submit">Donate Now</button>
+      </form>
+    </div>
+    
+    <section class="visit">
+
+      <div>
+        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3966.751617860666!2d80.08787111034307!3d6.16400929379747!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3ae182a9ecb0c635%3A0xbd3561821dfbe76b!2sSea%20Turtle%20Hatchery%20%26%20Rescue%20Center!5e0!3m2!1sen!2slk!4v1685479704724!5m2!1sen!2slk" width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+      </div>
+
+       <div class="middle-box">
+         <div>
+           <p>CHECK THE PLACE <br> & <br> BOOK A VISIT <br></p>
+         </div>
+         <button> <a class="a-book" href="booking.html">BOOK NOW</a></button>
+       </div>
+
+
+      <div>
+       <iframe src="https://calendar.google.com/calendar/embed?src=it.lk%23holiday%40group.v.calendar.google.com&ctz=Asia%2FColombo" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
+     </div>
+    </section>
+<br>
   <div class="pro-container">
+      <h2 >BUY YOUR SUVENIERS ONLINE</h2>
 
     <div class="pro-row">
         <div class="pro-card">

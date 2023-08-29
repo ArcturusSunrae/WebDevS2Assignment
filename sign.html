@@ -1,0 +1,141 @@
+
+ <!DOCTYPE html>
+ <html lang="en">
+ <head>
+	 <meta charset="UTF-8">
+	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
+	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="icon" type="image/x-icon" href="./images/logo1.ico">
+	<link rel="stylesheet" href="./css/home.css">
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400;1,500&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,wght@0,400;1,400;1,500&family=Great+Vibes&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Amatic+SC&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Montserrat&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Lobster&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Playfair+Display&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Bodoni+Moda:ital,wght@0,400;1,400;1,500&family=Great+Vibes&family=Staatliches&display=swap" rel="stylesheet">
+	 <title>sign up & Login</title>
+
+	 <style>
+
+		.vid{
+			position: absolute;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			z-index: -1;
+		}
+
+				.transparent-style{
+			background-color: transparent;
+			display: flex;
+		}
+	 </style>
+ </head>
+ <body>
+
+	<div class="headCon" >
+        <div class="transparent-style" >
+            <a class="log" href="home.html">
+              <img  id="img" src="./images/logo.png" alt="">.
+            </a>
+
+         <nav>
+          <a  class="navIcon" href="home.html">HOME </a>
+          <a  class="navIcon" href="about.html">ABOUT</a>
+          <a  class="navIcon" href="sign.html">CONTACT</a>
+          <a  class="navIcon" href="store.html">DONATE & SUPPORT</a>
+	    </nav>   
+		<a class="sign" href="booking.html">
+			<button class="signn" class="navIcon" href="booking.html">Book Now</button>
+		   </a>
+<!--          <a class="sign">
+          <button class="signn" class="navIcon" href="sign.html">Sign in/ Login</button>
+         </a> -->
+        </div>
+	<video autoplay muted loop class="vid">
+		<source src="videos/turtle.mp4" type="video/mp4">
+</video>
+<h1>Sign In / Sign Up </h1>
+
+ <div class="bigCon">
+
+	<div class="container">
+		<div class="main-container">
+			<div class="left">
+			  <h2>Create an Account</h2>
+			  <form>
+				<div class="form-group">
+				  <label for="signup-name">Name</label>
+				  <input type="text" id="signup-name" name="signup-name" required>
+				</div>
+				<div class="form-group">
+				  <label for="signup-email">Email</label>
+				  <input type="email" id="signup-email" name="signup-email" required>
+				</div>
+				<div class="form-group">
+				  <label for="signup-password">Password</label>
+				  <input type="password" id="signup-password" name="signup-password" required>
+				</div>
+				<div class="form-group">
+				  <input type="submit" value="Sign Up">
+				</div>
+				<div class="or-divider">
+				  <span>or</span>
+				</div>
+				<div class="icon-signup">
+				  <a href="#" class="icon-btn">
+					<img src="./images/search.png" alt="Google Icon">
+					Sign Up with Google
+				  </a>
+				</div>
+				<div class="icon-signup">
+					<a href="#" class="icon-btn">
+					  <img src="./images/twitter.png" alt="Twitter Icon">
+					  Sign Up with Twitter
+					</a>
+				</div>
+
+			  </form>
+
+			</div>
+			<div class="signIn">
+				<h1>Welcome back!</h1>
+				<p>please log-in with your Gmail, or Username</p>
+				<form action="get">
+					<div class="inputs">
+						<input type="text" name="userName" placeholder="Username*" required></input>
+						<br><br>
+						<input type="password" name="password" placeholder="Password*" required/>
+					</div>
+					<br><br><br>
+
+					<div class="icon-signup">
+						<a href="#" class="icon-btn">
+						  <img src="./images/search.png" alt="Google Icon">
+						  Sign In with Google
+						</a>
+					  </div>
+				</form>
+			 </div>
+		  </div>
+		
+
+		</form>
+		 </div>
+		 
+
+	 
+	 </div> 
+ </div>
+ </body>
+ </html>
+ 

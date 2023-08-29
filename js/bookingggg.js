@@ -225,6 +225,7 @@ document.addEventListener('DOMContentLoaded', () => {
   }
 
 
+
   // Update price based on ticket type and counts
   function updatePrice(index) {
     const type = countCells[index].parentElement.getAttribute('data-type');

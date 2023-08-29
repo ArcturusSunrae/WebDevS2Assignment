@@ -4,22 +4,41 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Booking page </title>
-    <link rel="stylesheet" href="./css/booking.css">
+   <link rel="stylesheet" href="./css/booking.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/pikaday/css/pikaday.css">
     <link rel="icon" href="favicon.ico" type="image/x-icon">
     <link rel="icon" type="image/x-icon" href="./images/logo1.ico">
+    <link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Alata&family=Bodoni+Moda:ital,wght@0,400;1,400;1,500&family=Great+Vibes&family=Staatliches&display=swap" rel="stylesheet">
   
   <!-- Link to Flatpickr CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
   <link rel="stylesheet" type="text/css" href="https://npmcdn.com/flatpickr/dist/themes/airbnb.css">
-</head>
-<body>
-    <style>
-        button{
+      <style>
+
+        body{
+            background-color: transparent;
+            background-image: url('./images/greenback.jpg');
+            background-size: 100% 100%;
+            width: 99%;
+            height: 100vh;
+        }
+
+        .main-web-container{
+            width: 100%;
+            background-color: rgb(57 95 82);
+            border-radius: 30px;
+            justify-content: center;
+            align-items: center;
+            margin: 1% 0 0 0;
+            padding-top:3%;
+        }
+
+        .button{
             width: 7%;
             height: 4%;
-            background: #48525b;
-            margin: 5%;
+            background-color:transparent;
+            margin: 0;
             border-radius: 5px;
             position: relative;
             font-size: 20px;
@@ -30,18 +49,137 @@
             color: rgb(9, 0, 40);
         }
             
+        a {
+            padding-top: 3%;
+        }
+
+        .headText{
+            font-family: 'Raleway', serif;
+            font-weight: bolder;
+            margin: 0 ;
+            padding: 0 10px 0 0 ;
+        }
+
+        .summary-separation{
+            background-color: rgb(90, 113, 134);
+            border-radius: 30px;
+            margin: 1% 10% 0 2%;
+            width: 60%;
+        }
+        .summary-container{
+            background-color: transparent;
+        }
+
+        .choosing-ticket{
+            background-color: transparent;
+        }
+
+        .second-half{
+            background-color: #4b7d9a;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center; 
+            margin: 0 0 0 2%;
+            margin-top: 4%;
+        }
+
+
+        
+        .second-half div{
+            width: 65%;
+        }
+
+        .ticket-count{
+            text-align: center;
+            margin-left: 15%;
+        }
+
+        .ticket-type{
+            align-items: end;
+        }
+
+        .ticket-head{
+            margin: 0 0 0 2%;
+            font-size: 30px;
+            font-family: 'Bodoni Moda', serif;
+        }
+        
+
+        .video-container {
+    position: relative;
+    width: 100%;
+    height: 100vh; /* Adjust as needed */
+    overflow: hidden;
+    background: url('path/to/your/poster-image.jpg') no-repeat center center;
+    background-size: cover;
+    background-attachment: fixed;
+  }
+
+  /* Style the video element */
+  video {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    z-index: -2;
+  }
         
     </style>
-    <nav class="nav">
+</head>
+<body>
+    <!-- <nav class="nav">
         <button class="back"> <a href="hikka.html">back </a></button>
+        <a href="home.html"><img  id="img" src="./images/logo.png" alt="">.</a>
+
         <div class="title-boking">
-            <h1>Book Your</h1>
-            <h1>Ticket</h1>
+            <h1 class="headText">Book Your</h1>
+            <h1 class="headText">Ticket</h1>
         </div>
-        <img  id="img" src="./images/logo.png" alt="">.
+    </nav> -->
 
-    </nav>
+    <div class="headCon">
+        <div id="head">
+            <a class="log" href="home.html">
+              <img  id="img" src="./images/logo.png" alt="">.
+            </a>
+    
+         <nav>
+          <a  class="navIcon" href="home.html">HOME </a>
+          <div class="dropdown">
+            <button class="dropbtn">ABOUT
+              <i></i>
+            </button>
+            <div class="dropCont">
+              <div class="innerContOne">
+                <a href="about.html">What Hatcheries Do</a>
+                <a href="threats.html">Threats To Turtles</a>
+                <a href="categories.html">Turtle Species in Sri Lanka</a>
+              </div>
+              <div class="innerContTwo">
+                <a href="hikka.html">Hikkaduwa Turtle Hatchery</a>
+                 <a href="benthota.html">Benthota Turtle Hatchery</a>
+                <a href="kosgoda.html">Kosgoda Turtle Hatchery</a> 
+              </div>
+    
+            </div>
+          </div> 
+          <a  class="navIcon" href="sign.html">CONTACT</a>
+          <a  class="navIcon" href="store.html">DONATE & SUPPORT</a>
+         </nav>   
 
+         <a class="sign" href="sign.html">
+          <button class="signn" class="navIcon" href="sign.html">Sign in/ Login</button>
+         </a>
+        </div>
+
+    <div class="main-web-container">
+        <div class="title-boking">
+            <h1 class="headText">BOOK YOUR TICKET</h1>
+        </div>
+    
     <div class="summary-separation">
 
     <!-- left section (booking information section) -->
@@ -119,11 +257,11 @@
                 </tr>
             </table>
     </div>
+    </div>
 
-    <div class="sec-one-info-right">
+    <!-- <div class="sec-one-info-right"> -->
 
-
-<div class="summary-container">
+   <div class="summary-container">
     <table>
  
         <tr>
@@ -183,16 +321,13 @@
             <td colspan="4" class="total-price-cell">$150.00</td>
         </tr>
     </table>
-</div>
+   </div>
 
-</body>
-</html>
-
-    </div>
+    <!-- </div> -->
 
 
 
-</div>
+
 <br><br><br><br><br><br>
          <div class="choosing-ticket">
             
@@ -201,13 +336,13 @@
             <div class="first-half">
 
                 <div class="date-picker">
-                    <label for="date-picker">Choose a date</label>
+                    <label for="date-picker">CHOOSE A DATE</label>
                     <input class="date-control" type="date-pick" placeholder="Select a date" >
                 </div>
 
 
                 <div class="time-picker">
-                    <h2>Choose a Time Slot</h2>
+                    <h2>CHOOSE A TIME</h2>
     
                       <select id="timeDropdown" aria-multiselectable="true" multiple> 
                         <option onclick="updateSelectedTimes" value="07:00am - 08:00am">07:00am - 08:00am</option>
@@ -231,10 +366,10 @@
                     <div class="nonPeakTime"></div>
                 </div>
             </div>
-            <h2>Choose Tickets</h2>
             <div class="second-half">
 
-                <div>
+                <h2 class="ticket-head">TICKET CHOISES</h2>
+                
                     <div class="ticket-type">
                         <div class="ticket-count">
                             <button class="count-button subtract-button">-</button>
@@ -290,7 +425,7 @@
                             <label class="count-label">0</label>
                         </div>
                     </div> 
-                </div>
+                
 
 
 
@@ -298,9 +433,14 @@
 
 
             </div>  
+            <button class="signn" style="margin-left: 50%; margin-bottom: 3%;"><a href="details.html">next Page</a></button>
+
          </div>
 
-<button><a href="details.html">next Page</a></button>
+
+</div>
+
+
 
 
 <script>

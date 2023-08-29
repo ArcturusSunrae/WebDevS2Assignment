@@ -6,7 +6,7 @@
 	 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 	 <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" type="image/x-icon" href="./images/logo1.ico">
-	<link rel="stylesheet" href="./css/home.css">
+	<link rel="stylesheet" href="./css/home.css"> 
 	<script src="https://unpkg.com/alpinejs" defer></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/css/intlTelInput.css">
     <script src="https://cdn.jsdelivr.net/npm/intl-tel-input@18.1.1/build/js/intlTelInput.min.js"></script>
@@ -30,24 +30,52 @@
             text-decoration: none;
             color: white;
         }
+        video {
+            object-fit: contain;
+            overflow-clip-margin: content-box;
+            overflow: clip;
+        }
+
+        .vid{
+            position:absolute;
+        z-index: -1;        }
     </style>
 
-	<div class="headCon" >
-        <div class="tranparent-style" >
-            <a class="log" href="home.html">
-              <img  id="img" src="./images/logo.png" alt="">.
-            </a>
+<div class="headCon">
+    <div id="head">
+        <a class="log" href="home.html">
+          <img  id="img" src="./images/logo.png" alt="">.
+        </a>
 
-         <nav>
-          <a  class="navIcon" href="home.html">HOME </a>
-          <a  class="navIcon" href="about.html">ABOUT</a>
-          <a  class="navIcon" href="sign.html">CONTACT</a>
-          <a  class="navIcon" href="store.html">DONATE & SUPPORT</a>
-	       </nav>   
-         <a class="sign">
-          <button id="sign" class="navIcon" href="sign.html">Sign in/ Login</button>
-         </a>
+     <nav>
+      <a  class="navIcon" href="home.html">HOME </a>
+      <div class="dropdown">
+        <button class="dropbtn">ABOUT
+          <i></i>
+        </button>
+        <div class="dropCont">
+          <div class="innerContOne">
+            <a href="about.html">What Hatcheries Do</a>
+            <a href="threats.html">Threats To Turtles</a>
+            <a href="categories.html">Turtle Species in Sri Lanka</a>
+          </div>
+          <div class="innerContTwo">
+            <a href="hikka.html">Hikkaduwa Turtle Hatchery</a>
+             <a href="benthota.html">Benthota Turtle Hatchery</a>
+            <a href="kosgoda.html">Kosgoda Turtle Hatchery</a> 
+          </div>
+
         </div>
+      </div> 
+      <a  class="navIcon" href="sign.html">CONTACT</a>
+      <a  class="navIcon" href="store.html">DONATE & SUPPORT</a>
+     </nav>   
+
+     <a class="sign" href="sign.html">
+      <button class="signn" class="navIcon" href="sign.html">Sign in/ Login</button>
+     </a>
+    </div>
+	
 	<video autoplay muted loop class="vid">
 		<source src="videos/turtle.mp4" type="video/mp4">
 </video>
@@ -123,7 +151,7 @@
 			<div x-data="checkout" class="signIn">
 				<h1>Information Form</h1>
 				<p>please fill in the below asked information</p>
-				<form id="myForm"  x-on:submit.prevent="Go To Payment">
+				<form id="myForm" action="get" x-on:submit.prevent="Go To Payment">
 					<div class="inputs">
 						<div>
 							<label for="fullName">Full Name</label>
@@ -144,7 +172,7 @@
 						 <option value="female">female</option>
 						</select>
 
-						<button type="submit" class="proceed"> <a href="payment.html">proceed</a></button>
+						<a href="payment.html"><button type="submit" class="proceed"> proceed</button></a>
 					</div>
 					<br><br><br>
 
@@ -281,25 +309,21 @@ const forms = document.getElementById('myForm');
 
  
 
-        // Validation for Full Name
         if (fullName.trim() === '') {
             alert('Full Name is required.');
             return;
         }
 
-        // Validation for Mobile Number
         if (mobile.trim() === '') {
             alert('Mobile Number is required.');
             return;
         }
 
-        // Validation for Email
         if (email.trim() === '') {
             alert('Email is required.');
             return;
         }
 
-        // Validation for Confirm Email
         if (conEmail.trim() === '') {
             alert('Confirm Email is required.');
             return;
@@ -309,7 +333,6 @@ const forms = document.getElementById('myForm');
             return;
         }
 
-        // Validation for Gender (Optional)
         if (gender === '') {
             alert('Gender is required.');
             return;
